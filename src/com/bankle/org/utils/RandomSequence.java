@@ -5,8 +5,12 @@ import java.io.*;
 import java.util.Random;
 
 public class RandomSequence {
-    public static final int MAX20 = 1<<20;
+    public static final int MAX20 = 1<<24;
     private static Random random = new Random();
+
+    public static void main(String[] args) {
+        generateSequence();
+    }
 
     public static int[] retrieveSequence() {
         String path = "/home/lyf/Desktop/temp";
