@@ -1,13 +1,13 @@
 package com.bankle.org;
 
-import java.util.Arrays;
+import com.bankle.org.utils.RandomSequence;
 
 public class ShellSort {
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 15, 3, 78, 34, 23, 46, 2, 8, 34, 57};
-        System.out.println("before Shell sort " + Arrays.toString(nums));
+        int[] nums = RandomSequence.retrieveSequence();
+        long previousTime = System.currentTimeMillis();
         sort(nums);
-        System.out.println("after Shell sort " + Arrays.toString(nums));
+        System.out.println("Quick sort cost " + (System.currentTimeMillis() - previousTime));
     }
 
     public static void sort(int[] arrays) {
