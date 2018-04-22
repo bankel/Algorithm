@@ -1,25 +1,19 @@
 package com.bankle.org;
 
-import java.util.Arrays;
+import com.bankle.org.utils.RandomSequence;
 
 public class MergeSort {
-    static int[] nums = new int[]{
-            1, 15, 3, 78,
-            34, 23, 46, 2,
-            8, 34, 57, 50,
-            200, 123, 66, 43,
-            33, 100, 356, 21};
 
-    static int[] auxiliary = new int[nums.length];
+    static int[] auxiliary;
 
     public static void main(String[] args) {
 
-
-        System.out.println("before Bubble sort " + Arrays.toString(nums));
-//        topToBottomSort(nums, 0, nums.length - 1);
+        int[] nums = RandomSequence.retrieveSequence();
+        auxiliary = new int[nums.length];
+        long previousTime = System.currentTimeMillis();
         bottomToTopSort(nums);
+        System.out.println("Merge sort cost " + (System.currentTimeMillis() - previousTime));
 
-        System.out.println("after Bubble sort " + Arrays.toString(nums));
     }
 
     public static void topToBottomSort(int[] nums, int low, int height) {
