@@ -54,4 +54,33 @@ public class HeapSort {
         array[k - 1] = temp;
     }
 
+
+    private void swim(int[] array, int k) {
+        while (k > 1 && less(array, k / 2, k)) {
+            exchange(array, k, k / 2);
+            k = k / 2;
+        }
+    }
+
+    //assume the value of root node is the minimum
+    private static void deleteMin(int[] array) {
+        int length = array.length;
+        int lastElement = array[length - 1];
+
+
+        int child , k;
+        for (k = 0; 2 * k < length; k = child) {
+            child = 2 *k +1;
+            if(child + 1 > length) break;
+            if ( array[child] > array[child + 1]) child++;
+
+            if (array[child] < lastElement) {
+                array[k] = array[child];
+            }
+        }
+
+        array[k] = lastElement;
+        array[length - 1] = -1;
+    }
+
 }
